@@ -17,7 +17,6 @@ app = Client(
     bot_token=os.getenv('bot_token')
 )
 
-BREAK = -1767824779
 MESSAGE = "{} Ciao {}, benvenut* nel gruppo ufficiale dell'[aula break](https://www.youtube.com/watch?v=dQw4w9WgXcQ)."
 
 @app.on_message(filters.text)
