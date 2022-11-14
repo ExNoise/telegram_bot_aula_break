@@ -26,39 +26,46 @@ async def command(client, message):
     if message.text.startswith('/'):
         print(message.chat.username, "IN", message.chat.id,"\ntext:", message.text)
 
-    ## COMMAND ##
-    if message.text == "/start" or message.text == "/start@NonFunonziaBot":
-        await message.reply("Grazie per avermi aggiunto a questo canale, per ulteriori informazioni scrivi in privato a @zAiro12", quote=False)
-    
-    elif message.text == "/momentogubbio" or message.text == "/momentogubbio@NonFunonziaBot":
-        await message.reply("Vuoi che ti porti la carta igienica? O la laurea se vuoi tanto è uguale 😂", quote=False)
-    
-    elif message.text == "/correntesaltata" or message.text == "/correntesaltata@NonFunonziaBot":
-        with open("main.json", 'r') as jfile:
-            data = json.load(jfile)
+        ## COMMAND ##
+        if message.text == "/start" or message.text == "/start@NonFunonziaBot":
+            await message.reply("Grazie per avermi aggiunto a questo canale, per ulteriori informazioni scrivi in privato a @zAiro12", quote=False)
         
-        saltaluce = int(data["saltaluce"])+1
-        
-        data['saltaluce'] = saltaluce
-        with open("main.json", 'w') as jfile:
-            json.dump(data, jfile)
-        testo = "La corrente è saltata {} volte"
-        await message.reply(testo.format(saltaluce), quote=False)
 
-    elif message.text.startswith("/setcorrente") or message.text.startswith("/setcorrente@NonFunziaBot"):
-        if message.chat.username == "zAiro12":
-            val = message.text.split(" ")
+        elif message.text == "/momentogubbio" or message.text == "/momentogubbio@NonFunonziaBot":
+            await message.reply("Vuoi che ti porti la carta igienica? O la laurea se vuoi tanto è uguale 😂", quote=False)
+        
+
+        elif message.text == "/correntesaltata" or message.text == "/correntesaltata@NonFunonziaBot":
             with open("main.json", 'r') as jfile:
                 data = json.load(jfile)
-                
-            data['saltaluce'] = int(val[1])
-                
+            
+            saltaluce = int(data["saltaluce"])+1
+            
+            data['saltaluce'] = saltaluce
             with open("main.json", 'w') as jfile:
                 json.dump(data, jfile)
-            testo = "La corrente è stata settata a {}"
-            await message.reply(testo.format(int(val[1])), quote=False)
-        else: 
-            await message.reply("Non puoi usare questo comando, solo @zAiro12 ha il permesso", quote=False)
+            testo = "La corrente è saltata {} volte"
+            await message.reply(testo.format(saltaluce), quote=False)
+
+        
+        elif message.text.startswith("/setcorrente") or message.text.startswith("/setcorrente@NonFunziaBot"):
+            if message.chat.username == "zAiro12":
+                val = message.text.split(" ")
+                with open("main.json", 'r') as jfile:
+                    data = json.load(jfile)
+                    
+                data['saltaluce'] = int(val[1])
+                    
+                with open("main.json", 'w') as jfile:
+                    json.dump(data, jfile)
+                testo = "La corrente è stata settata a {}"
+                await message.reply(testo.format(int(val[1])), quote=False)
+            else: 
+                await message.reply("Non puoi usare questo comando, solo @zAiro12 ha il permesso", quote=False)
+   
+    else:
+        await message.reply("Comando non valido", quote=False)
+
 
 @app.on_message(filters.new_chat_members)
 async def welcome(client, message):
@@ -69,5 +76,5 @@ async def welcome(client, message):
         text = MESSAGE.format(emoji.SPARKLES, ", ".join(new_members))
         await message.reply_text(text, disable_web_page_preview=True)
 
-print("ON")
+print("ONLINE")
 app.run()
