@@ -16,4 +16,4 @@
 
 ## ADMIN COMMANDS:
 
-> ***/settacorrente*** : serve per settare il counter della corrente
+> ***/setcorrente*** : serve per settare il counter della corrente

@@ -45,7 +45,7 @@ async def command(client, message):
         testo = "La corrente è saltata {} volte"
         await message.reply(testo.format(saltaluce), quote=False)
 
-    elif (message.text.startswith("/settacorrente") or message.text.startswith("/settacorrente@NonFunziaBot")) and message.chat.username == "zAiro12":
+    elif (message.text.startswith("/setcorrente") or message.text.startswith("/setcorrente@NonFunziaBot")) and message.chat.username == "zAiro12":
         val = message.text.split(" ")
         with open("main.json", 'r') as jfile:
             data = json.load(jfile)
