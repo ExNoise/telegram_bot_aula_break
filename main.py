@@ -43,7 +43,7 @@ async def command(client, message):
         with open("main.json", 'w') as jfile:
             json.dump(data, jfile)
         testo = "La corrente è saltata {} volte"
-        await message.reply(testo.format(saltaluce))
+        await message.reply(testo.format(saltaluce), quote=False)
 
     elif (message.text.startswith("/settacorrente") or message.text.startswith("/settacorrente@NonFunziaBot")) and message.chat.username == "zAiro12":
         val = message.text.split(" ")
@@ -55,7 +55,7 @@ async def command(client, message):
         with open("main.json", 'w') as jfile:
             json.dump(data, jfile)
         testo = "La corrente è stata settata a {}"
-        await message.reply(testo.format(int(val[1])))
+        await message.reply(testo.format(int(val[1])), quote=False)
 
 @app.on_message(filters.new_chat_members)
 async def welcome(client, message):
