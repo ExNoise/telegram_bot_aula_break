@@ -62,7 +62,8 @@ async def command(client, message):
                 await message.reply(testo.format(int(val[1])), quote=False)
             else: 
                 await message.reply("Non puoi usare questo comando, solo @zAiro12 ha il permesso", quote=False)
-   
+        else:
+            None
     else:
         await message.reply("Comando non valido", quote=False)
 
