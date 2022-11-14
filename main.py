@@ -19,7 +19,7 @@ app = Client(
 
 BREAK = -1767824779
 ZAIRO = 178982113
-MESSAGE = "{} Benvenuto nel canale dell'[aula break](https://www.youtube.com/watch?v=dQw4w9WgXcQ). {}!"
+MESSAGE = "{} Ciao {}, benvenut* nel gruppo ufficiale dell'[aula break](https://www.youtube.com/watch?v=dQw4w9WgXcQ)."
 
 @app.on_message(filters.text)
 async def command(client, message):
@@ -30,11 +30,13 @@ async def command(client, message):
         await message.reply("Vuoi che ti porti la carta igienica? O la laurea se vuoi tanto è uguale 😂")
 
 
-@app.on_message(filters.chat(BREAK) & filters.new_chat_members)
+@app.on_message(filters.new_chat_members)
 async def welcome(client, message):
     new_members = [u.mention for u in message.new_chat_members]
     text = MESSAGE.format(emoji.SPARKLES, ", ".join(new_members))
     await message.reply_text(text, disable_web_page_preview=True)
+
+@app.on_message(filters.)
 
 
 print("ON")
