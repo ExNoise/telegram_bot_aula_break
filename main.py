@@ -8,7 +8,7 @@ def configure():
 
 app = Client(
     "my_account",
-    app_version="1.1.1",
+    app_version="1.2.0",
     device_model="PC",
     system_version="Mac",
     lang_code="it",
@@ -21,6 +21,12 @@ MESSAGE = "{} Ciao {}, benvenut* nel gruppo ufficiale dell'[aula break](https://
 
 @app.on_message(filters.text)
 async def command(client, message):
+
+    ## LOGS ##
+    if message.text.startswith('/'):
+        print(message.chat.username, "IN", message.chat.id,"\ntext:", message.text)
+
+    ## COMMAND ##
     if message.text == "/start" or message.text == "/start@NonFunonziaBot":
         await message.reply("Grazie per avremi aggiunto. Per tutte le informazioni relative a questo bot chiedere a @zAiro12")
     elif message.text == "/momentogubbio" or message.text == "/momentogubbio@NonFunonziaBot":
