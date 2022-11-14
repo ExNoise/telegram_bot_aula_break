@@ -18,7 +18,6 @@ app = Client(
 )
 
 BREAK = -1767824779
-ZAIRO = 178982113
 MESSAGE = "{} Ciao {}, benvenut* nel gruppo ufficiale dell'[aula break](https://www.youtube.com/watch?v=dQw4w9WgXcQ)."
 
 @app.on_message(filters.text)
