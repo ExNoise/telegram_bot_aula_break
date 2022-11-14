@@ -23,7 +23,6 @@ MESSAGE = "{} Ciao {}, benvenut* nel gruppo ufficiale dell'[aula break](https://
 
 @app.on_message(filters.text)
 async def command(client, message):
-    print(message)
     if message.text == "/start" or message.text == "/start@NonFunonziaBot":
         await message.reply("Grazie per avremi aggiunto. Per tutte le informazioni relative a questo bot chiedere a @zAiro12")
     elif message.text == "/momentogubbio" or message.text == "/momentogubbio@NonFunonziaBot":
@@ -32,12 +31,13 @@ async def command(client, message):
 
 @app.on_message(filters.new_chat_members)
 async def welcome(client, message):
-    new_members = [u.mention for u in message.new_chat_members]
-    text = MESSAGE.format(emoji.SPARKLES, ", ".join(new_members))
-    await message.reply_text(text, disable_web_page_preview=True)
-
-@app.on_message(filters.)
-
+    #print(message.new_chat_members[0].username)
+    if(message.new_chat_members[0].username=="NonFunonziaBot"):
+       await message.reply("Grazie per avermi aggiunto a questo canale, per ulteriori informazioni scrivi in privato a @zAiro12")
+    else:
+        new_members = [u.mention for u in message.new_chat_members]
+        text = MESSAGE.format(emoji.SPARKLES, ", ".join(new_members))
+        await message.reply_text(text, disable_web_page_preview=True)
 
 print("ON")
 app.run()
