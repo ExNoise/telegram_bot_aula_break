@@ -1,4 +1,4 @@
-# telegram bot aula break, meglio conosiuto come BreakBot o NonFunzionaBot
+# telegram bot aula break, meglio conosiuto come **BreakBot** o **NonFunzionaBot**
 
 ## Link d'invito: 
 - [@NonFunzionaBot](https://t.me/NonFunonziaBot)
