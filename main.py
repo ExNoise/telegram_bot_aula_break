@@ -45,17 +45,20 @@ async def command(client, message):
         testo = "La corrente è saltata {} volte"
         await message.reply(testo.format(saltaluce), quote=False)
 
-    elif (message.text.startswith("/setcorrente") or message.text.startswith("/setcorrente@NonFunziaBot")) and message.chat.username == "zAiro12":
-        val = message.text.split(" ")
-        with open("main.json", 'r') as jfile:
-            data = json.load(jfile)
-            
-        data['saltaluce'] = int(val[1])
-            
-        with open("main.json", 'w') as jfile:
-            json.dump(data, jfile)
-        testo = "La corrente è stata settata a {}"
-        await message.reply(testo.format(int(val[1])), quote=False)
+    elif message.text.startswith("/setcorrente") or message.text.startswith("/setcorrente@NonFunziaBot"):
+        if message.chat.username == "zAiro12":
+            val = message.text.split(" ")
+            with open("main.json", 'r') as jfile:
+                data = json.load(jfile)
+                
+            data['saltaluce'] = int(val[1])
+                
+            with open("main.json", 'w') as jfile:
+                json.dump(data, jfile)
+            testo = "La corrente è stata settata a {}"
+            await message.reply(testo.format(int(val[1])), quote=False)
+        else: 
+            await message.reply("Non puoi usare questo comando, solo @zAiro12 ha il permesso", quote=False)
 
 @app.on_message(filters.new_chat_members)
 async def welcome(client, message):
