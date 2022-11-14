@@ -1,10 +1,10 @@
 from pyrogram import Client, filters, emoji
 from dotenv import load_dotenv
 import os
+import json
 
 def configure():
     load_dotenv()
-
 
 app = Client(
     "my_account",
@@ -29,16 +29,25 @@ async def command(client, message):
     ## COMMAND ##
     if message.text == "/start" or message.text == "/start@NonFunonziaBot":
         await message.reply("Grazie per avermi aggiunto a questo canale, per ulteriori informazioni scrivi in privato a @zAiro12", quote=False)
+    
     elif message.text == "/momentogubbio" or message.text == "/momentogubbio@NonFunonziaBot":
         await message.reply("Vuoi che ti porti la carta igienica? O la laurea se vuoi tanto è uguale 😂", quote=False)
-    # elif message.text == "/correntesaltata" or message.text == "/correntesaltata@NonFunonziaBot":
-    #     corrente = os.getenv('corrente') 
-    #     await message.reply("oggi la corrente è saltata ",os.getenv('corrente'), " volte", )
+    
+    elif message.text == "/correntesaltata" or message.text == "/correntesaltata@NonFunonziaBot":
+        with open("main.json", 'r') as jfile:
+            data = json.load(jfile)
+        
+        saltaluce = int(data["saltaluce"])+1
+        
+        data['saltaluce'] = saltaluce
+        with open("main.json", 'w') as jfile:
+            json.dump(data, jfile)
+        testo = "La corrente è saltata {} volte"
+        await message.reply(testo.format(saltaluce))
 
 
 @app.on_message(filters.new_chat_members)
 async def welcome(client, message):
-    #print(message.new_chat_members[0].username)
     if(message.new_chat_members[0].username=="NonFunonziaBot"):
        await message.reply("Grazie per avermi aggiunto a questo canale, per ulteriori informazioni scrivi in privato a @zAiro12")
     else:
