@@ -8,7 +8,7 @@ def configure():
 
 app = Client(
     "my_account",
-    app_version="1.0.0",
+    app_version="1.1.0",
     device_model="PC",
     system_version="Mac",
     lang_code="it",
