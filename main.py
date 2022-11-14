@@ -28,9 +28,12 @@ async def command(client, message):
 
     ## COMMAND ##
     if message.text == "/start" or message.text == "/start@NonFunonziaBot":
-        await message.reply("Grazie per avremi aggiunto. Per tutte le informazioni relative a questo bot chiedere a @zAiro12")
+        await message.reply("Grazie per avermi aggiunto a questo canale, per ulteriori informazioni scrivi in privato a @zAiro12", quote=False)
     elif message.text == "/momentogubbio" or message.text == "/momentogubbio@NonFunonziaBot":
-        await message.reply("Vuoi che ti porti la carta igienica? O la laurea se vuoi tanto è uguale 😂")
+        await message.reply("Vuoi che ti porti la carta igienica? O la laurea se vuoi tanto è uguale 😂", quote=False)
+    # elif message.text == "/correntesaltata" or message.text == "/correntesaltata@NonFunonziaBot":
+    #     corrente = os.getenv('corrente') 
+    #     await message.reply("oggi la corrente è saltata ",os.getenv('corrente'), " volte", )
 
 
 @app.on_message(filters.new_chat_members)
