@@ -7,3 +7,5 @@
 ## COMMANDS:
 
 > ***/momentogubbio*** : per condividere un momento gubbio con tutti i membri dell'aula break
+
+> ***/correntesaltata*** : per tenere il conto di  quante volte è saltata la corrente
