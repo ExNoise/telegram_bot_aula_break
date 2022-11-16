@@ -62,8 +62,34 @@ async def command(client, message):
                 await message.reply(testo.format(int(val[1])), quote=False)
             else: 
                 await message.reply("Non puoi usare questo comando, solo @zAiro12 ha il permesso", quote=False)
-    
+        
+        #send audio with message for sburate
+        elif message.text.startswith("/amici") or message.text.startswith("/amici@NonFunonziaBot"):
+            await message.reply("Addio, Addio, Amici Addio, noi ci dobbiamo sbura-are 💦💦💦",quote="false")
+            await message.send_audio(  
+                                     "me", "addio_orso.mp3")
+        
+        #counter of sburate
+        elif message.text.startswith("/sburate") or message.text.startswith("/sburate@NonFunonziaBot"):
+           
+           
+            data["sburrata"] = int(val[3])
+           
+            sburacounter = int(data["sburrata"])+1
+            
+            
+            data['sburrata'] = sburacounter
+            
+            with open("main.json", 'r') as jfile:
+                data = json.load(jfile)
+                    
+            await message.reply("Questo gruppo ha sburato "+int(val[3]),quote="false")
 
+            
+        elif message.text.startswith("/momentosbura") or message.text.startswith("/momentosbura@NonFunonziaBot")or message.text.startswith("/momentosburra") or message.text.startswith("/momentosburra@NonFunonziaBot"):
+            await message.reply("ATT-T-T-T-ENTƏ ALLA SBURA",quote="false")
+            
+            
 
 @app.on_message(filters.new_chat_members)
 async def welcome(client, message):
