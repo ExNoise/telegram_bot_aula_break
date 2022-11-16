@@ -41,7 +41,7 @@ async def command(client, message):
             
             saltaluce = data[0].get('saltaluce') +1
             
-            data[0]['saltaluce'] = saltaluce
+            data['saltaluce'] = saltaluce
             with open("main.json", 'w') as jfile:
                 json.dump(data, jfile)
             testo = "La corrente è saltata {} volte"
@@ -85,7 +85,7 @@ async def command(client, message):
 
             
         elif message.text.startswith("/momentosbura") or message.text.startswith("/momentosbura@NonFunonziaBot")or message.text.startswith("/momentosburra") or message.text.startswith("/momentosburra@NonFunonziaBot"):
-            await message.reply("ATT-T-T-T-ENTƏ ALLA SBURA",quote="false")
+            await message.reply("ATT-T-T-T-ENTƏ ALLA SBURA",quote=False)
             
             
 
