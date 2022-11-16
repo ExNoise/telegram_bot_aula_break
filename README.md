@@ -12,12 +12,12 @@
 
 > ***/correntesaltata*** : per tenere il conto di  quante volte è saltata la corrente
 
-> ***/momentosbura: per condividere un momento sbura con tutti
-> *** overload in /momentosburra
+> ***/momentosbura*** : per condividere un momento sbura con tutti
+> overload in ***/momentosburra***
 
-> ***/sburate: stampa il counter delle volte che i componenti di aula break hanno sburrato
+> ***/sburate***: stampa il counter delle volte che i componenti di aula break hanno sburrato
 
-> ***/amici: manda un'audio dell'orso della casa blu 
+> ***/amici***: manda un'audio dell'orso della casa blu 
 
 
 <br>
