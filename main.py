@@ -39,9 +39,9 @@ async def command(client, message):
             with open("main.json", 'r') as jfile:
                 data = json.load(jfile)
             
-            saltaluce = int(data["saltaluce"])+1
+            saltaluce = data[0].get('saltaluce') +1
             
-            data['saltaluce'] = saltaluce
+            data[0]['saltaluce'] = saltaluce
             with open("main.json", 'w') as jfile:
                 json.dump(data, jfile)
             testo = "La corrente è saltata {} volte"
@@ -65,23 +65,23 @@ async def command(client, message):
         
         #send audio with message for sburate
         elif message.text.startswith("/amici") or message.text.startswith("/amici@NonFunonziaBot"):
-            await message.reply("Addio, Addio, Amici Addio, noi ci dobbiamo sbura-are 💦💦💦",quote="false")
-            await message.send_audio("me", "addio_orso.mp3")
+            await message.reply("Addio, Addio, Amici Addio, noi ci dobbiamo sbura-are 💦💦💦", quote=False)
+            await message.reply_audio("addio_orso.mp3")
         
         #counter of sburate
         elif message.text.startswith("/sburate") or message.text.startswith("/sburate@NonFunonziaBot"):
            
-            data["sburrata"] = int(val[3])
-           
-            sburacounter = int(data["sburrata"])+1
-            
-            
-            data['sburrata'] = sburacounter
-            
             with open("main.json", 'r') as jfile:
                 data = json.load(jfile)
-                    
-            await message.reply("Questo gruppo ha sburato "+int(val[3]),quote="false")
+           
+            sburacounter = data[1].get('sburrata')+1
+            data[1]['sburrata'] = sburacounter
+            
+            with open("main.json", 'w') as jfile:
+                json.dump(data, jfile)
+
+            testo = "Questo gruppo ha sburato {} volte"
+            await message.reply(testo.format(sburacounter), quote=False)
 
             
         elif message.text.startswith("/momentosbura") or message.text.startswith("/momentosbura@NonFunonziaBot")or message.text.startswith("/momentosburra") or message.text.startswith("/momentosburra@NonFunonziaBot"):
