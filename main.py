@@ -17,7 +17,7 @@ app = Client(
     bot_token=os.getenv('bot_token')
 )
 
-MESSAGE = "{} Ciao {}, benvenut* nel gruppo ufficiale dell'[aula break](https://www.youtube.com/watch?v=dQw4w9WgXcQ)."
+MESSAGE = "{} Ciao {}, benvenutƏ nel gruppo ufficiale dell'[aula break](https://www.youtube.com/watch?v=dQw4w9WgXcQ)."
 
 @app.on_message(filters.text)
 async def command(client, message):
@@ -66,12 +66,10 @@ async def command(client, message):
         #send audio with message for sburate
         elif message.text.startswith("/amici") or message.text.startswith("/amici@NonFunonziaBot"):
             await message.reply("Addio, Addio, Amici Addio, noi ci dobbiamo sbura-are 💦💦💦",quote="false")
-            await message.send_audio(  
-                                     "me", "addio_orso.mp3")
+            await message.send_audio("me", "addio_orso.mp3")
         
         #counter of sburate
         elif message.text.startswith("/sburate") or message.text.startswith("/sburate@NonFunonziaBot"):
-           
            
             data["sburrata"] = int(val[3])
            
