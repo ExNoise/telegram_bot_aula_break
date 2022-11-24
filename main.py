@@ -39,13 +39,13 @@ async def command(client, message):
             with open("main.json", 'r') as jfile:
                 data = json.load(jfile)
             
-            saltaluce = data[0].get('saltaluce') +1
+            salta = data[0].get('saltaluce') +1
             
-            data['saltaluce'] = saltaluce
+            data[0]['saltaluce'] = salta
             with open("main.json", 'w') as jfile:
                 json.dump(data, jfile)
             testo = "La corrente è saltata {} volte"
-            await message.reply(testo.format(saltaluce), quote=False)
+            await message.reply(testo.format(salta), quote=False)
 
         
         elif message.text.startswith("/setcorrente") or message.text.startswith("/setcorrente@NonFunziaBot"):
@@ -54,7 +54,7 @@ async def command(client, message):
                 with open("main.json", 'r') as jfile:
                     data = json.load(jfile)
                     
-                data['saltaluce'] = int(val[1])
+                data[0]['saltaluce'] = int(val[1])
                     
                 with open("main.json", 'w') as jfile:
                     json.dump(data, jfile)
