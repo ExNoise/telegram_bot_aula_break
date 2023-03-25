@@ -71,7 +71,7 @@ async def command(client, message):
         elif message.text.startswith("/momentosbura") or message.text.startswith("/momentosbura@NonFunonziaBot")or message.text.startswith("/momentosburra") or message.text.startswith("/momentosburra@NonFunonziaBot"):
             await message.reply("ATT-T-T-T-ENTƏ ALLA SBURA", quote=False)
 
-        elif message.text.startswith("/ciaoEx") or message.text.startswith("/ciaoEx@NonFunonziaBot"):
+        elif message.text.startswith("/ciaoex") or message.text.startswith("/ciaoex@NonFunonziaBot"):
             
             with open("main.json", 'r') as jfile:
                 data = json.load(jfile)
