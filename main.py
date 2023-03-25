@@ -85,14 +85,33 @@ async def command(client, message):
 
             
         elif message.text.startswith("/momentosbura") or message.text.startswith("/momentosbura@NonFunonziaBot")or message.text.startswith("/momentosburra") or message.text.startswith("/momentosburra@NonFunonziaBot"):
-            await message.reply("ATT-T-T-T-ENTƏ ALLA SBURA",quote=False)
+            await message.reply("ATT-T-T-T-ENTƏ ALLA SBURA", quote=False)
+
+        elif message.text.startswith("/ciaoEx") or message.text.startswith("/ciaoEx@NonFunonziaBot"):
             
+            with open("main.json", 'r') as jfile:
+                data = json.load(jfile)
+           
+            excounter = data[2].get('ex')+1
+            data[2]['ex'] = excounter
             
+            with open("main.json", 'w') as jfile:
+                json.dump(data, jfile)
+
+            testo = "Ciao @Ex_Noise, puzzi. Ex è stato salutato {} volte. Diventerà famoso 🧐?"
+            await message.reply(testo.format(excounter), quote=False)
+        
+        
+        # comando di prova da non aggiungere ai comandi base e che serve per vedere se il bot è online o pure no
+        elif message.text.startswith("/prova") or message.text.startswith("/prova@NonFunonziaBot"):
+            await message.reply("ON", quote=False)
+            
+
 
 @app.on_message(filters.new_chat_members)
 async def welcome(client, message):
     if(message.new_chat_members[0].username=="NonFunonziaBot"):
-       await message.reply("Grazie per avermi aggiunto a questo canale, per ulteriori informazioni scrivi in privato a @zAiro12")
+       await message.reply("Grazie per avermi aggiunto a questo canale, per ulteriori informazioni scrivi in privato a @zAiro12 o @Ex_Noise")
     else:
         new_members = [u.mention for u in message.new_chat_members]
         text = MESSAGE.format(emoji.SPARKLES, ", ".join(new_members))
