@@ -58,7 +58,7 @@ async def command(client, message):
             with open("main.json", 'r') as jfile:
                 data = json.load(jfile)
            
-            sburacounter = data[1].get('sburrata')+1
+            sburacounter = data[0].get('sburrata')+1
             data[0]['sburrata'] = sburacounter
             
             with open("main.json", 'w') as jfile:
@@ -76,7 +76,7 @@ async def command(client, message):
             with open("main.json", 'r') as jfile:
                 data = json.load(jfile)
            
-            excounter = data[2].get('ex')+1
+            excounter = data[0].get('ex')+1
             data[0]['ex'] = excounter
             
             with open("main.json", 'w') as jfile:
