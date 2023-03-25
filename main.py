@@ -59,7 +59,7 @@ async def command(client, message):
                 data = json.load(jfile)
            
             sburacounter = data[1].get('sburrata')+1
-            data[1]['sburrata'] = sburacounter
+            data[0]['sburrata'] = sburacounter
             
             with open("main.json", 'w') as jfile:
                 json.dump(data, jfile)
@@ -77,7 +77,7 @@ async def command(client, message):
                 data = json.load(jfile)
            
             excounter = data[2].get('ex')+1
-            data[2]['ex'] = excounter
+            data[0]['ex'] = excounter
             
             with open("main.json", 'w') as jfile:
                 json.dump(data, jfile)
@@ -94,15 +94,28 @@ async def command(client, message):
         elif message.text.startswith("/set") or message.text.startswith("/setcorrente@NonFunziaBot"):
             if message.chat.username == "zAiro12":
                 val = message.text.split(" ")
+                
                 with open("main.json", 'r') as jfile:
                     data = json.load(jfile)
-                    
-                data[int(val[1])]['saltaluce'] = int(val[2])
+                
+                if val[1] == '0': 
+                    data[0]['saltaluce'] = int(val[2])
+                    testo = "La corrente è stata settata a {}"
+                    await message.reply(testo.format(int(val[2])), quote=False)
+                
+                elif val[1] == '1':
+                    data[0]['sburrata'] = int(val[2])
+                    testo = "Sburrata a {}"
+                    await message.reply(testo.format(int(val[2])), quote=False)
+                
+                elif val[1] == '2':
+                    data[0]['ex'] = int(val[2])
+                    testo = "ciaoEx a {}"
+                    await message.reply(testo.format(int(val[2])), quote=False)
                     
                 with open("main.json", 'w') as jfile:
                     json.dump(data, jfile)
-                testo = "La corrente è stata settata a {}"
-                await message.reply(testo.format(int(val[2])), quote=False)
+                    
             else: 
                 await message.reply("Non puoi usare questo comando, solo @zAiro12 ha il permesso", quote=False)
 
