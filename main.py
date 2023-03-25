@@ -88,14 +88,14 @@ async def command(client, message):
         
 
 
-
+    # comandi admin /infoset
         elif message.text.startswith("/infoset") or message.text.startswith("/infosetcorrente@NonFunziaBot"):
             if message.chat.username == "zAiro12":
                 await message.reply("0: luce\n1: sburrata\n2: ex", quote=False)
             else: 
                 await message.reply("Non puoi usare questo comando, solo @zAiro12 ha il permesso", quote=False)
 
-        # comandi admin /set [quale si vuole settare (0: luce, 1: sburrata, 2: ex)] [quanto si vuole settare]
+        # comandi admin /set [quale si vuole settare] [quanto si vuole settare]
         elif message.text.startswith("/set") or message.text.startswith("/setcorrente@NonFunziaBot"):
             if message.chat.username == "zAiro12":
                 val = message.text.split(" ")
